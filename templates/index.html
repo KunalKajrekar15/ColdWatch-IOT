@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColdWatch | Smart Cold Storage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">❄</div>
+            <div>
+                <h1>ColdWatch</h1>
+                <p>SMART COLD STORAGE MONITORING</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span id="connectionDot" class="dot offline"></span>
+            <span id="connectionText">Arduino Disconnected</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <div>
+                <h2>Cold Storage Overview</h2>
+                <p>Monitor temperature, door status and system activity.</p>
+            </div>
+            <div class="date" id="currentDate">--</div>
+        </section>
+
+        <section class="cards">
+
+            <div class="card temperature-card">
+                <div class="card-heading">
+                    <span>Temperature Sensor 1</span>
+                    <span>🌡️</span>
+                </div>
+                <h2 id="temp1">-- °C</h2>
+                <p>Sensor reading</p>
+            </div>
+
+            <div class="card temperature-card">
+                <div class="card-heading">
+                    <span>Temperature Sensor 2</span>
+                    <span>🌡️</span>
+                </div>
+                <h2 id="temp2">-- °C</h2>
+                <p>Sensor reading</p>
+            </div>
+
+            <div class="card">
+                <div class="card-heading">
+                    <span>Door Status</span>
+                    <span>🚪</span>
+                </div>
+                <h2 id="doorStatus">--</h2>
+                <p>Magnetic reed switch</p>
+            </div>
+
+            <div class="card">
+                <div class="card-heading">
+                    <span>Cooling Fan</span>
+                    <span>🌀</span>
+                </div>
+                <h2 id="fanStatus">--</h2>
+                <p>Continuous operation</p>
+            </div>
+
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Temperature Monitoring</h2>
+                    <p>Live readings from both temperature probes</p>
+                </div>
+                <span class="live-label">● LIVE DATA</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <p class="chart-note" id="chartMessage">
+                Waiting for real Arduino sensor readings...
+            </p>
+        </section>
+
+        <section class="bottom-grid">
+
+            <div class="panel">
+                <h2>System Alerts</h2>
+                <p class="panel-subtitle">Current system conditions</p>
+
+                <div class="alert-row">
+                    <span>Temperature Alert</span>
+                    <strong id="temperatureAlert" class="status">--</strong>
+                </div>
+
+                <div class="alert-row">
+                    <span>Door Alarm</span>
+                    <strong id="doorAlarm" class="status">--</strong>
+                </div>
+
+                <div class="alert-row">
+                    <span>Arduino Connection</span>
+                    <strong id="arduinoStatus" class="status">Disconnected</strong>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Door Control</h2>
+                <p class="panel-subtitle">
+                    Control the lightweight demonstration door
+                </p>
+
+                <div class="servo-buttons">
+                    <button id="openButton" onclick="controlServo('O')">
+                        Open Door
+                    </button>
+
+                    <button id="closeButton" onclick="controlServo('C')">
+                        Close Door
+                    </button>
+                </div>
+
+                <p id="servoMessage" class="servo-message">
+                    Waiting for connection
+                </p>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>ColdWatch — IoT-Based Smart Cold Storage Monitoring System</p>
+            <p>Arduino Uno • DS18B20 • Flask Dashboard</p>
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

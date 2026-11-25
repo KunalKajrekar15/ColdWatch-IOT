@@ -1,0 +1,376 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --background: #f3f6fb;
+    --surface: #ffffff;
+    --primary: #176b87;
+    --primary-light: #e5f4f8;
+    --text: #172b3a;
+    --muted: #718096;
+    --border: #e6ebf1;
+    --green: #16865b;
+    --red: #d64b4b;
+    --shadow: 0 5px 20px rgba(24, 48, 72, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.topbar {
+    background: #ffffff;
+    min-height: 82px;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 27px;
+}
+
+.brand h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.brand p {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.connection {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.dot.online {
+    background: var(--green);
+    box-shadow: 0 0 0 4px #e0f4eb;
+}
+
+.dot.offline {
+    background: var(--red);
+    box-shadow: 0 0 0 4px #fbe9e9;
+}
+
+.container {
+    max-width: 1250px;
+    width: 90%;
+    margin: 35px auto;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.welcome h2 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.welcome p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.date {
+    background: white;
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+    margin-bottom: 22px;
+}
+
+.card, .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+}
+
+.card {
+    padding: 22px;
+    min-height: 145px;
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    gap: 8px;
+}
+
+.card-heading span:last-child {
+    font-size: 19px;
+}
+
+.card h2 {
+    font-size: 29px;
+    margin-top: 18px;
+    font-weight: 800;
+}
+
+.card > p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.panel {
+    padding: 25px;
+    margin-bottom: 22px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel h2, .section-heading h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.section-heading p, .panel-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.live-label {
+    color: var(--green);
+    background: #e7f6ee;
+    border-radius: 20px;
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.chart-container {
+    width: 100%;
+    height: 260px;
+    margin-top: 22px;
+    position: relative;
+}
+
+#temperatureChart {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.chart-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.bottom-grid .panel {
+    margin-bottom: 0;
+}
+
+.alert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.alert-row:last-child {
+    border-bottom: none;
+}
+
+.status {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.status.good {
+    color: var(--green);
+}
+
+.status.bad {
+    color: var(--red);
+}
+
+.servo-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#openButton {
+    background: var(--primary);
+    color: white;
+}
+
+#closeButton {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.servo-message {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 15px 5%;
+    }
+
+    .brand h1 {
+        font-size: 19px;
+    }
+
+    .brand p {
+        font-size: 8px;
+    }
+
+    .connection {
+        font-size: 10px;
+    }
+
+    .container {
+        width: 92%;
+        margin-top: 25px;
+    }
+
+    .welcome {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 23px;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .chart-container {
+        height: 210px;
+    }
+}
